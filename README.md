@@ -4,11 +4,11 @@ The Add-In's idea comes from this idea station post: [Identify Open Loops in Ske
 
 Though Fusion does not require the sketch curves to go from end point to end point in order to form a profile that can be used e.g. for extrusion, it could be considered a good practice to follow that. If you do not, then this utility will highlight all those sketch points that are not connected to other entities (image on the left). If you do follow this practice then a closed loop will show no issues by this tool (image on the right)
 ![Sketch curves with open ends]
-(./resources/SketchChecker2.png)
+(./resources/readme/SketchChecker2.png)
 
 Sometimes non-connected curves can be difficult to find and this tool can help with that
 ![Sketch curves with open ends]
-(./resources/SketchChecker1.png)
+(./resources/readme/SketchChecker1.png)
 
 ## Usage
 The Add-In provides a single commands that is added to the "Model" workspace's "Inspect" panel:
