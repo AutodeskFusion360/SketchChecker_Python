@@ -213,7 +213,7 @@ def run(context):
         
         # command properties
         commandName = 'Check Sketch'
-        commandResources = './resources'
+        commandResources = './resources/command’
 
         # our command
         class CommandExecuteHandler(adsk.core.CommandEventHandler):
