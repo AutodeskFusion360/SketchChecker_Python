@@ -12,7 +12,7 @@ Sometimes non-connected curves can be difficult to find and this tool can help w
 
 ## Usage
 The Add-In provides a single commands that is added to the "Model" workspace's "Inspect" panel:
-- "Check Sketch": checks the currently open sketch for curves which are not part of a closed loop.
+- "Check Sketch": checks the currently open sketch for curves which are not part of a closed loop and will highligh them in the UI by adding them to the current selection.
  
 ## License
 Samples are licensed under the terms of the [MIT License](http://opensource.org/licenses/MIT). Please see the [LICENSE](LICENSE) file for full details.
