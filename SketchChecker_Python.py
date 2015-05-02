@@ -95,6 +95,8 @@ def show(ui, msg):
 handlers = []
 isSavingSnapshot = True
 commandId = 'SketchCheckerCmd'
+workspaceToUse = 'FusionSolidEnvironment'
+panelToUse = 'InspectPanel'
 
 # Some utility functions
 def commandDefinitionById(id):
@@ -108,15 +110,17 @@ def commandDefinitionById(id):
     return commandDefinition_
 
 def commandControlByIdForPanel(id):
+    global workspaceToUse
+    global panelToUse
     app = adsk.core.Application.get()
     ui = app.userInterface
     if not id:
         ui.messageBox('commandControl id is not specified')
         return None
     workspaces_ = ui.workspaces
-    modelingWorkspace_ = workspaces_.itemById('FusionSolidEnvironment')
+    modelingWorkspace_ = workspaces_.itemById(workspaceToUse)
     toolbarPanels_ = modelingWorkspace_.toolbarPanels
-    toolbarPanel_ = toolbarPanels_.item(5)
+    toolbarPanel_ = toolbarPanels_.itemById(panelToUse)
     toolbarControls_ = toolbarPanel_.controls
     toolbarControl_ = toolbarControls_.itemById(id)
     return toolbarControl_
@@ -138,7 +142,8 @@ def addCommandToPanel(panel, commandId, commandName, commandDescription, command
     if not toolbarControlPanel_:
         commandDefinitionPanel_ = commandDefinitions_.itemById(commandId)
         if not commandDefinitionPanel_:
-            commandDefinitionPanel_ = commandDefinitions_.addButtonDefinition(commandId, commandName, commandDescription, commandResources)
+            commandDefinitionPanel_ = commandDefinitions_.addButtonDefinition(commandId, commandName, commandName, commandResources)
+            commandDefinitionPanel_.tooltipDescription = commandDescription
         
         commandDefinitionPanel_.commandCreated.add(onCommandCreated)
         
@@ -213,7 +218,9 @@ def run(context):
         
         # command properties
         commandName = 'Check Sketch'
-        commandResources = './resources/command’
+        commandDescription = 'Checks the curves in the currently active sketch for ' \
+        'any open ends which do not connect to other curves and highlights those'
+        commandResources = './resources'
 
         # our command
         class CommandExecuteHandler(adsk.core.CommandEventHandler):
@@ -242,12 +249,14 @@ def run(context):
                         ui.messageBox('Panel command created failed:\n{}'.format(traceback.format_exc()))                
         
         # add our command on "Inspect" panel in "Modeling" workspace
+        global workspaceToUse
+        global panelToUse
         workspaces_ = ui.workspaces
-        modelingWorkspace_ = workspaces_.itemById('FusionSolidEnvironment')
+        modelingWorkspace_ = workspaces_.itemById(workspaceToUse)
         toolbarPanels_ = modelingWorkspace_.toolbarPanels
         # add the new command under the fifth panel / "Inspect"
-        toolbarPanel_ = toolbarPanels_.item(5) 
-        addCommandToPanel(toolbarPanel_, commandId, commandName, commandName, commandResources, CommandCreatedEventHandler())
+        toolbarPanel_ = toolbarPanels_.itemById(panelToUse) 
+        addCommandToPanel(toolbarPanel_, commandId, commandName, commandDescription, commandResources, CommandCreatedEventHandler())
     except:
         if ui:
             ui.messageBox('Failed:\n{}'.format(traceback.format_exc()))
