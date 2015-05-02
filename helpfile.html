@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/TR/REC-html40" xml:lang="en" dir="ltr" class="js">
+<head>
+    <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+    <title>Fusion 360 Exchange - Sketch Checker Help</title>
+    <link rel="icon"
+          type="image/png"
+          href="resources/command/32x32.png">
+</head>
+<style>
+    html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, hr, pre, code, form, fieldset, legend, input, textarea, blockquote, table, th, td {
+        padding: 0;
+        margin: 0;
+    }
+
+    a {
+        color: #1F5397;
+        text-decoration: none
+    }
+
+    body, ul {
+        font-family: "Arial", "Helvetica", "sans-serif";
+        font-size: 12.0px;
+        margin: 15px
+    }
+
+    p {
+        font-size: 12.0px;
+        line-height: 16px;
+        padding: 0px;
+        margin: 5px 0px 5px 0px
+    }
+
+    h1 {
+        font-size: 22.0px;
+        height: 26px;
+    }
+
+    .separator-line {
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: #C3C3C3
+    }
+
+    h2 {
+        font-size: 16.0px;
+        line-height: 18px;
+        height: 16px;
+        margin-bottom: 3px;
+        margin-top: 15px
+    }
+
+    h3 {
+        font-size: 14.0px;
+        line-height: 16px;
+        height: 14px;
+        margin-bottom: 3px;
+        margin-top: 15px
+    }
+
+    #plugin-icon {
+        float: left;
+        width: 94px;
+        height: 94px
+    }
+
+    #plugin-name {
+        margin-left: 94px
+    }
+
+    #plugin-description {
+        margin-left: 94px;
+        margin-top: 3px;
+        margin-bottom: 40px
+    }
+
+    #navigation {
+        margin-bottom: 10px;
+        clear: both
+    }
+
+    .nav-link-spacer {
+        margin: 0px 5px 0px 5px
+    }
+
+    .command {
+        margin-top: 5px;
+        margin-bottom: 3px
+    }
+
+    .command.icon {
+        float: left;
+        width: 34px;
+        height: 34px
+    }
+
+    .command.name {
+        font-weight: bold;
+        padding-top: 4px;
+        margin: 0px 0px 0px 34px
+    }
+
+    .command.description {
+        margin: 0px 0px 0px 34px
+    }
+
+    .versionset {
+        margin-bottom: 5px
+    }
+
+    .version {
+        float: left;
+        width: 50px
+    }
+
+    .versioninfo-bullet {
+        margin-left: 50px
+    }
+
+    .screenshots {
+    }
+
+    .clearboth {
+        clear: both
+    }
+
+    .thumbnail {
+        float: left;
+        width: 207px;
+        margin: 0px 20px 0px 0px
+    }
+
+    .caption {
+        font-weight: bold
+    }
+</style>
+
+<body>
+<div id="plugin-node" class="node right-box content-area">
+    <div class="plugin-help">
+        <div id="heading">
+            <div id="plugin-icon"><img alt="Sketch Checker icon" width=64 height=64 src="resources/command/64x64.png"></div>
+            <div id="plugin-name"><h1 class="separator-line">Sketch Checker</h1></div>
+            <p id="plugin-description"><strong>Fusion 360</strong> add-in that lets the user check if there are any open
+                ended curves inside the sketch currently being edited.</p>
+        </div>
+
+        <div id="navigation">
+            Getting Started<span class="nav-link-spacer">|</span>
+            <a href="#Install">Install/Uninstall</a><span class="nav-link-spacer">|</span>
+            <a href="#AdditionalInfo">Additional Information</a><span class="nav-link-spacer">|</span>
+            <a href="#Contact">Contact</a><span class="nav-link-spacer">|</span>
+            <a class="navigation-link" href="#VersionHistory">Version History</a>
+        </div>
+
+        <h2 id="GettingStarted" name="GettingStarted">Getting Started</h2>
+
+        <p>To use the add-in, click the following command</p>
+
+        <div class="command clearboth">
+            <div class="command icon">
+                <img width=32 height=32 src="resources/command/32x32.png"/>
+            </div>
+            <div class="command name">
+                Check Sketch
+            </div>
+            <div class="command command-description">
+                Runs the command that will check the content of the sketch that is currently being edited.
+                <br />If it finds any curves that has end points which are not connecting to other sketch entities then it
+                highlights those sketch points.
+            </div>
+        </div>
+
+        <h3>Usage</h3>
+
+        <p>Once installed, the <strong>"Sketch Checker"</strong> add-in will create a new button in the menu of the
+            <strong>"Model"</strong> workspace's <strong>"Inspect"</strong> panel.<br/>
+
+            <img src="resources/readme/SketchChecker3.png" alt=""/>
+            <br/>
+            Sometimes it can be difficult to identify at which point the sketch is not properly closed, and so cannot be
+            used as a profile for solid creation, e.g. <strong>Extrude</strong>.
+            <br />This add-in tries to help with that problem by identifying curves
+            which do not connect to other curves leaving the loop open:
+            <br/>
+            <img src="resources/readme/SketchChecker1.png" alt="" />
+            <br />
+            Though unlike Inventor, Fusion does not require the sketch curves to connect to each other through a
+            sketch point in order to use the enclosed area as a profile for solid creation,
+            <br />it could be considered a good practice and can make the sketch look cleaner.
+            <br />Unfortunately, if you do not follow that, this add-in will highlight false issues as well along the real ones.
+            <br />
+            <img src="resources/readme/SketchChecker2.png" alt="" />
+            <br />However, most of the time you should still be able to visually distinguish false results from good ones,
+            since the real issues are where the curves "seem to be" connected, but they are not.
+            <br />
+            <img src="resources/readme/SketchChecker4.png" alt="" />
+
+        </p>
+
+
+        <h2 id="Install" name="Install">Installation and Uninstallation</h2>
+
+        <p>
+            You can unload the add-in without uninstalling it by clicking the
+            <strong>"Stop"</strong> button when the add-in is selected in the list box on the <strong>"Add-Ins"</strong>
+            tab of the <strong>"Scripts and Add-Ins"</strong> dialog.<br/>
+            <br/>
+            Unchecking <strong>"Run on Startup"</strong> causes the add-in not to be loaded in future sessions of
+            <strong>Fusion 360</strong>.<br/>
+        </p>
+
+        <h2 id="AdditionalInfo" name="AdditionalInfo">Additional Information</h2>
+
+        <p> The source code for this add-in written in <a href="https://www.python.org">Python</a> is available inside the add-in's folder or on <a
+                href="https://github.com/AutodeskFusion360/SketchChecker_Python">GitHub</a><br/>
+        </p>
+        <br/>
+        (C) Copyright 2015 by <a href="http://www.autodesk.com">Autodesk, Inc.</a> <br/>
+        <br/>
+        Permission to use, copy, modify, and distribute this software in <br/>
+        object code form for any purpose and without fee is hereby granted, <br/>
+        provided that the above copyright notice appears in all copies and <br/>
+        that both that copyright notice and the limited warranty and restricted <br/>
+        rights notice below appear in all supporting documentation.<br/>
+        <br/>
+        AUTODESK PROVIDES THIS PROGRAM "AS IS" AND WITH ALL FAULTS. <br/>
+        AUTODESK SPECIFICALLY DISCLAIMS ANY IMPLIED WARRANTY OF MERCHANTABILITY OR <br/>
+        FITNESS FOR A PARTICULAR USE. AUTODESK, INC. DOES NOT WARRANT THAT THE <br/>
+        OPERATION OF THE PROGRAM WILL BE UNINTERRUPTED OR ERROR FREE.
+
+        <h2 id="Contact" name="Contact">Contact</h2>
+
+        <p>This add-in was written by <a href="http://adndevblog.typepad.com/manufacturing/adam-nagy.html">Adam Nagy</a>.<br/>
+            Adam is a Developer Advocate at Autodesk, working as part of the Autodesk Developer Network program.<br/>
+
+        </p>
+
+        <h3>Support Information</h3>
+
+        <p>
+            Email us at <a href="mailto:fusion.apps@autodesk.com">fusion.apps@autodesk.com</a> with feedback or requests
+            for enhancements.
+        </p>
+
+        <h2 id="VersionHistory" name="VersionHistory">Version History</h2>
+
+        <p>
+
+        <div class="versionset">
+            <div class="version">1.0.0</div>
+            <div class="versioninfo-bullet">Original release<br/>
+            </div>
+        </div>
+        </p>
+    </div>
+</div>
+</body>
+</html>
