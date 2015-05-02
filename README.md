@@ -6,7 +6,7 @@ The Add-In's idea comes from this idea station post: [Identify Open Loops in Ske
 Have a look at the [help file](https://rawgit.com/AutodeskFusion360/ChangeComparer_Python/master/helpfile.html)
  
 ## License
-Samples are licensed under the terms of the [MIT License](http://opensource.org/licenses/MIT). Please see the [LICENSE](AutodeskFusion360.github.io/LICENSE) file for full details.
+Samples are licensed under the terms of the [MIT License](http://opensource.org/licenses/MIT). Please see the [LICENSE](https://rawgit.com/AutodeskFusion360/AutodeskFusion360.github.io/master/LICENSE) file for full details.
 
 ## Written by 
 Written by [Adam Nagy](http://adndevblog.typepad.com/manufacturing/adam-nagy.html)  <br />
