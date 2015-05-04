@@ -220,7 +220,7 @@ def run(context):
         commandName = 'Check Sketch'
         commandDescription = 'Checks the curves in the currently active sketch for ' \
         'any open ends which do not connect to other curves and highlights those'
-        commandResources = './resources'
+        commandResources = './resources/command'
 
         # our command
         class CommandExecuteHandler(adsk.core.CommandEventHandler):

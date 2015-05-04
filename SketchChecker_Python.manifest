@@ -2,11 +2,11 @@
 	"autodeskProduct":	"Fusion360",
 	"type":	"addin",
 	"id":	"a26a3822-2594-4178-b8c3-9bf2457613f6",
-	"author":	"",
+	"author":	"Adam Nagy, Autodesk",
 	"description":	{
-		"":	""
+		"":	"Lets the user check if there are any open ended curves inside the sketch currently being edited"
 	},
-	"version":	"",
+	"version":	"1.0.0",
 	"runOnStartup":	true,
 	"supportedOS":	"windows|mac"
 }
