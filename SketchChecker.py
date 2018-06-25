@@ -1,5 +1,5 @@
 # Author - Adam Nagy
-# Description - Tests the currently selected sketch for open ended skecth curves
+# Description - Tests the currently active sketch for open ended skecth curves
 
 import adsk.core, adsk.fusion, traceback
 
